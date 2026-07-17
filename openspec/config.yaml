@@ -1,0 +1,23 @@
+schema: spec-driven
+
+context: |
+  Tech stack: Astro (TypeScript), Tailwind CSS, deployed to Cloudflare Pages (git-based auto-deploy).
+  Architecture: business identity/copy lives in src/config/business.ts, decoupled from page templates,
+  so the codebase can be forked and re-skinned for a different business without touching templates.
+  Design tokens (warm-autumn palette): terracotta #C1592B (primary accent), amber #D98E3B (secondary),
+  espresso #2B1B14 (anchor/headings), warm brown #3B241A (body text), blush sand #F3E0D2 (card fill),
+  warm cream #FBF3E7 (background).
+  Blog: markdown files in src/content/blog/, published by git push — no CMS/API.
+  Future direction: architecture should support adding Cloudflare Pages Functions + D1 (database) later
+  (e.g. an intake questionnaire with matching) without migrating hosting platforms.
+
+rules:
+  proposal:
+    - Keep concise — no filler paragraphs; just Why / What Changes / Capabilities / Impact
+  design:
+    - State each decision with a one-line reason; skip alternatives-considered essays unless the choice is genuinely contested
+    - Omit sections that don't apply (e.g. skip Migration Plan for greenfield changes)
+  specs:
+    - One scenario per requirement unless a second scenario tests genuinely different behavior
+  tasks:
+    - Numbered checklist grouped by implementation phase, ordered by dependency
