@@ -1,0 +1,23 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { business } from "../config/business";
+---
+
+<Layout title="Contact" description="Get in touch with us.">
+  <section class="mx-auto max-w-3xl px-6 py-16">
+    <h1 class="text-center text-4xl">Contact Us</h1>
+    <p class="mx-auto mt-4 max-w-xl text-center text-warm-brown">
+      Reach out and we'll get back to you soon.
+    </p>
+    <div class="mt-10 overflow-hidden rounded-lg bg-blush-sand">
+      <iframe
+        src={business.contactFormEmbedUrl}
+        width="100%"
+        height="900"
+        title="Contact form"
+      >
+        Loading…
+      </iframe>
+    </div>
+  </section>
+</Layout>

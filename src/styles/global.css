@@ -1,1 +1,27 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --color-terracotta: #c1592b;
+  --color-amber: #d98e3b;
+  --color-espresso: #2b1b14;
+  --color-warm-brown: #3b241a;
+  --color-blush-sand: #f3e0d2;
+  --color-warm-cream: #fbf3e7;
+
+  --font-display: "Fraunces", serif;
+  --font-sans: "Inter", sans-serif;
+}
+
+body {
+  background-color: var(--color-warm-cream);
+  color: var(--color-warm-brown);
+  font-family: var(--font-sans);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  color: var(--color-espresso);
+}

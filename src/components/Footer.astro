@@ -1,0 +1,12 @@
+---
+import { business } from "../config/business";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-espresso text-warm-cream">
+  <div class="mx-auto max-w-5xl px-6 py-8 text-sm">
+    <p>{business.name}</p>
+    <p class="mt-1 text-blush-sand">&copy; {year} {business.name}. All rights reserved.</p>
+  </div>
+</footer>

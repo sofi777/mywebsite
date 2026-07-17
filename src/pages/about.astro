@@ -1,0 +1,38 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { business } from "../config/business";
+---
+
+<Layout title="About/Services" description="Our services and why this matters to us.">
+  <section class="mx-auto max-w-5xl px-6 py-16">
+    <h1 class="text-center text-4xl">Our Services</h1>
+    <div class="mt-10 grid gap-8 md:grid-cols-2">
+      {
+        business.services.map((service) => (
+          <div class="rounded-lg bg-blush-sand p-6">
+            <h2 class="text-xl">{service.name}</h2>
+            <p class="mt-2 text-sm text-warm-brown">{service.description}</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="bg-blush-sand px-6 py-16">
+    <div class="mx-auto max-w-2xl">
+      <h2 class="text-center text-3xl">Why This Matters to Us</h2>
+      <div class="mt-6 space-y-4 text-warm-brown">
+        {business.founderStory.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-2xl px-6 py-16 text-center">
+    <a
+      href="/contact"
+      class="inline-block rounded-md bg-terracotta px-6 py-3 text-warm-cream hover:bg-amber"
+    >
+      Contact Us
+    </a>
+  </section>
+</Layout>

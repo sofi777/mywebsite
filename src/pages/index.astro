@@ -1,17 +1,55 @@
 ---
-
+import Layout from "../layouts/Layout.astro";
+import { business } from "../config/business";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Home">
+  <section class="mx-auto max-w-5xl px-6 py-20 text-center">
+    <h1 class="text-4xl md:text-5xl">{business.tagline}</h1>
+    <p class="mx-auto mt-6 max-w-2xl text-lg text-warm-brown">{business.heroSubhead}</p>
+    <a
+      href="/contact"
+      class="mt-8 inline-block rounded-md bg-terracotta px-6 py-3 text-warm-cream hover:bg-amber"
+    >
+      Contact Us
+    </a>
+  </section>
+
+  <section class="bg-blush-sand px-6 py-16">
+    <div class="mx-auto max-w-5xl">
+      <h2 class="text-center text-3xl">How we're here to support your loved ones</h2>
+      <div class="mt-10 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {
+          business.services.map((service) => (
+            <div class="rounded-lg bg-warm-cream p-6">
+              <h3 class="text-xl">{service.name}</h3>
+              <p class="mt-2 text-sm text-warm-brown">{service.description}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-3xl px-6 py-16">
+    <h2 class="text-center text-3xl">Why Families Choose Us</h2>
+    <ul class="mt-8 space-y-3">
+      {
+        business.trustPoints.map((point) => (
+          <li class="flex items-start gap-3">
+            <span class="mt-1 text-terracotta">&#10003;</span>
+            <span>{point}</span>
+          </li>
+        ))
+      }
+    </ul>
+    <div class="mt-10 text-center">
+      <a
+        href="/contact"
+        class="inline-block rounded-md bg-terracotta px-6 py-3 text-warm-cream hover:bg-amber"
+      >
+        Contact Us
+      </a>
+    </div>
+  </section>
+</Layout>
