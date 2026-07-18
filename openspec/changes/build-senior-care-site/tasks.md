@@ -32,12 +32,12 @@
 - [x] 5.1 Define blog content collection schema (title, date, excerpt, tags) in `src/content.config.ts`
 - [x] 5.2 Build blog listing page, newest-first
 - [x] 5.3 Build individual post page template
-- [x] 5.4 Write one sample post to verify the end-to-end publishing flow (add file → commit → push → live) — verified locally through build; git push happens once a Cloudflare Pages project exists (task 6)
+- [x] 5.4 Write one sample post to verify the end-to-end publishing flow (add file → commit → push → live) — verified locally through build; git push happens once a Cloudflare Workers project exists (task 6)
 
 ## 6. Deployment
 
-- [ ] 6.1 Create a Cloudflare Pages project connected to this git repository
-- [ ] 6.2 Configure build command/output directory for the Astro static build
+- [ ] 6.1 Create a Cloudflare Workers project connected to this git repository (Workers Builds, not classic Pages)
+- [ ] 6.2 Configure build command/output for the Astro build (adapter-managed; verify via wrangler.jsonc)
 - [ ] 6.3 Push to main and verify auto-deploy publishes the site
 - [ ] 6.4 Verify a deliberately broken build does not replace the live deployment, then revert
 
