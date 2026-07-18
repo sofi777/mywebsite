@@ -25,7 +25,7 @@
   - Trust points (5): consistent/familiar caregivers, weekly check-ins, cultural/language alignment, background-checked helpers, no long-term commitment (3–5 visit packages)
 - [x] 4.2 Build home page (hero, services summary, trust points, CTA) reading from config
 - [x] 4.3 Build about/services page (all 6 services + founder story) reading from config
-- [x] 4.4 Build contact page embedding a Google Form (placeholder embed URL until the user provides their form's URL)
+- [x] 4.4 Build contact page embedding a Google Form — using the user's own form (the same one used on the reference Google Sites mockup, submissions go to their email): `https://docs.google.com/forms/d/e/1FAIpQLSdMMD57vyS4ESG_oYhAOgjNVpvkUUpQjSf5_VKkC2cqTaR3fQ/viewform?embedded=true`
 
 ## 5. Blog
 
@@ -36,10 +36,10 @@
 
 ## 6. Deployment
 
-- [ ] 6.1 Create a Cloudflare Workers project connected to this git repository (Workers Builds, not classic Pages)
-- [ ] 6.2 Configure build command/output for the Astro build (adapter-managed; verify via wrangler.jsonc)
-- [ ] 6.3 Push to main and verify auto-deploy publishes the site
-- [ ] 6.4 Verify a deliberately broken build does not replace the live deployment, then revert
+- [x] 6.1 Create a Cloudflare Workers project connected to this git repository (Workers Builds, not classic Pages)
+- [x] 6.2 Configure build command/output for the Astro build (adapter-managed; verify via wrangler.jsonc)
+- [x] 6.3 Push to main and verify auto-deploy publishes the site — live at https://mywebsite.sofi777.workers.dev
+- [x] 6.4 Verify a deliberately broken build does not replace the live deployment, then revert — confirmed locally (build fails) and live site unaffected; reverted in commit 04cb79e
 
 ## 7. Validation
 
