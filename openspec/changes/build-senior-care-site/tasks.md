@@ -43,5 +43,5 @@
 
 ## 7. Validation
 
-- [ ] 7.1 Walk through every page on the deployed site and confirm content, palette, and navigation match specs
-- [ ] 7.2 Confirm mobile responsiveness on the live deployment
+- [x] 7.1 Walk through every page on the deployed site and confirm content, palette, and navigation match specs — verified at https://mywebsite.sofi777.workers.dev
+- [x] 7.2 Confirm mobile responsiveness on the live deployment
