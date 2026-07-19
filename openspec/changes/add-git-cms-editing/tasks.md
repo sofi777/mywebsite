@@ -1,7 +1,7 @@
 ## 1. CMS setup (user-owned)
 
 - [x] 1.1 CMS tool decided: Sveltia CMS (see design.md decision)
-- [ ] 1.2 User sets up GitHub OAuth via Sveltia's Cloudflare Workers auth script (`sveltia/sveltia-cms-auth`)
+- [x] 1.2 GitHub OAuth set up via Sveltia's Cloudflare Workers auth script — deployed at `https://sveltia-cms-auth.sofi777.workers.dev`, wired into `config.yml`'s `base_url`
 - [ ] 1.3 User confirms which GitHub collaborators should have write access (the actual save-permission gate). For now, CMS backend points at `mywebsite` directly, used only by the repo owner — fine, since there's no one to protect code from yet.
 
 ## 1a. Content-only repo (deferred — do before inviting any non-owner CMS editor)

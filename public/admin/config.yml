@@ -2,9 +2,7 @@ backend:
   name: github
   repo: sofi777/mywebsite
   branch: main
-  # Sveltia's Cloudflare Workers OAuth script (sveltia/sveltia-cms-auth) — deploy it
-  # (task 1.2, user-owned) and replace this with that worker's URL.
-  base_url: https://REPLACE-WITH-YOUR-SVELTIA-CMS-AUTH-WORKER.workers.dev
+  base_url: https://sveltia-cms-auth.sofi777.workers.dev
   auth_endpoint: auth
 
 # Lets Sveltia edit the local working copy directly when running on localhost,
