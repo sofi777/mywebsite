@@ -1,0 +1,71 @@
+backend:
+  name: github
+  repo: sofi777/mywebsite
+  branch: main
+  base_url: https://sveltia-cms-auth.sofi777.workers.dev
+  auth_endpoint: auth
+
+# Lets Sveltia edit the local working copy directly when running on localhost,
+# no OAuth needed — doesn't affect the deployed /admin, which always uses `backend`.
+local_backend: true
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: business
+    label: "Business Info"
+    files:
+      - name: business
+        label: "Business Info"
+        file: "src/content/business/business.yaml"
+        fields:
+          - name: business
+            label: "Business"
+            widget: object
+            fields:
+              - { name: name, label: "Business Name", widget: string }
+              - { name: tagline, label: "Tagline", widget: string }
+              - { name: heroSubhead, label: "Hero Subhead", widget: text }
+              - name: services
+                label: "Services"
+                widget: list
+                summary: "{{fields.name}}"
+                fields:
+                  - { name: name, label: "Service Name", widget: string }
+                  - { name: description, label: "Description", widget: text }
+              - name: founderStory
+                label: "Founder Story"
+                widget: list
+                field: { name: paragraph, label: "Paragraph", widget: text }
+              - name: trustPoints
+                label: "Trust Points"
+                widget: list
+                field: { name: point, label: "Point", widget: string }
+              - { name: contactFormEmbedUrl, label: "Contact Form Embed URL", widget: string }
+              - { name: currency, label: "Currency", widget: string, default: "usd" }
+              - name: packages
+                label: "Packages"
+                widget: list
+                summary: "{{fields.name}} — {{fields.priceDisplay}}"
+                fields:
+                  - { name: id, label: "ID", widget: string, readonly: true, hint: "Not editable here — set when the package is created" }
+                  - { name: name, label: "Name", widget: string }
+                  - { name: description, label: "Description", widget: text }
+                  - { name: priceDisplay, label: "Display Price", widget: string, hint: "e.g. $60" }
+                  - { name: stripePriceId, label: "Stripe Price ID", widget: string, readonly: true, hint: "Managed via Stripe setup, not editable here" }
+
+  - name: blog
+    label: "Blog"
+    folder: "src/content/blog"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { name: title, label: "Title", widget: string }
+      - { name: date, label: "Date", widget: datetime }
+      - { name: excerpt, label: "Excerpt", widget: text }
+      - name: tags
+        label: "Tags"
+        widget: list
+        default: []
+        field: { name: tag, label: "Tag", widget: string }
