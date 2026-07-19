@@ -52,4 +52,27 @@ import { business } from "../config/business";
       </a>
     </div>
   </section>
+
+  <section class="bg-blush-sand px-6 py-16">
+    <div class="mx-auto max-w-5xl">
+      <h2 class="text-center text-3xl">Packages</h2>
+      <div class="mt-10 grid gap-8 md:grid-cols-3">
+        {
+          business.packages.map((pkg) => (
+            <div class="flex flex-col rounded-lg bg-warm-cream p-6 text-center">
+              <h3 class="text-xl">{pkg.name}</h3>
+              <p class="mt-2 flex-1 text-sm text-warm-brown">{pkg.description}</p>
+              <p class="mt-4 text-2xl text-espresso">{pkg.priceDisplay}</p>
+              <a
+                href={`/api/checkout?packageId=${pkg.id}`}
+                class="mt-4 inline-block rounded-md bg-terracotta px-6 py-3 text-warm-cream hover:bg-amber"
+              >
+                Book this package
+              </a>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
 </Layout>

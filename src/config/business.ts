@@ -3,6 +3,14 @@ export interface Service {
   description: string;
 }
 
+export interface Package {
+  id: string;
+  name: string;
+  description: string;
+  priceDisplay: string;
+  stripePriceId: string;
+}
+
 export interface Business {
   name: string;
   tagline: string;
@@ -11,6 +19,8 @@ export interface Business {
   founderStory: string[];
   trustPoints: string[];
   contactFormEmbedUrl: string;
+  currency: string;
+  packages: Package[];
 }
 
 export const business: Business = {
@@ -67,4 +77,32 @@ export const business: Business = {
 
   contactFormEmbedUrl:
     "https://docs.google.com/forms/d/e/1FAIpQLSdMMD57vyS4ESG_oYhAOgjNVpvkUUpQjSf5_VKkC2cqTaR3fQ/viewform?embedded=true",
+
+  currency: "usd",
+
+  // TODO: replace stripePriceId values with real Stripe Price IDs once the
+  // Stripe account and products are set up (see tasks.md task group 1).
+  packages: [
+    {
+      id: "single-visit",
+      name: "Single Visit",
+      description: "Try us out with one visit — no commitment.",
+      priceDisplay: "$60",
+      stripePriceId: "price_REPLACE_SINGLE_VISIT",
+    },
+    {
+      id: "three-visit",
+      name: "3-Visit Package",
+      description: "Three visits, scheduled around your family's needs.",
+      priceDisplay: "$165",
+      stripePriceId: "price_REPLACE_THREE_VISIT",
+    },
+    {
+      id: "five-visit",
+      name: "5-Visit Package",
+      description: "Five visits — our most popular starting package.",
+      priceDisplay: "$260",
+      stripePriceId: "price_REPLACE_FIVE_VISIT",
+    },
+  ],
 };

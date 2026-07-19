@@ -1,0 +1,54 @@
+---
+export const prerender = false;
+
+import Layout from "../../layouts/Layout.astro";
+import Stripe from "stripe";
+
+interface Env {
+  STRIPE_SECRET_KEY: string;
+}
+
+const sessionId = Astro.url.searchParams.get("session_id");
+let paid = false;
+
+if (sessionId) {
+  const env = Astro.locals.runtime.env as unknown as Env;
+  const stripe = new Stripe(env.STRIPE_SECRET_KEY, {
+    httpClient: Stripe.createFetchHttpClient(),
+  });
+  try {
+    const session = await stripe.checkout.sessions.retrieve(sessionId);
+    paid = session.payment_status === "paid";
+  } catch {
+    paid = false;
+  }
+}
+---
+
+<Layout title={paid ? "Booking confirmed" : "Booking not confirmed"}>
+  <section class="mx-auto max-w-2xl px-6 py-20 text-center">
+    {
+      paid ? (
+        <>
+          <h1 class="text-4xl">You're booked!</h1>
+          <p class="mt-4 text-warm-brown">
+            Thanks for booking — we'll be in touch to schedule your visit.
+          </p>
+        </>
+      ) : (
+        <>
+          <h1 class="text-4xl">We couldn't confirm this booking</h1>
+          <p class="mt-4 text-warm-brown">
+            If you completed a payment and are seeing this, please contact us.
+          </p>
+        </>
+      )
+    }
+    <a
+      href="/"
+      class="mt-8 inline-block rounded-md bg-terracotta px-6 py-3 text-warm-cream hover:bg-amber"
+    >
+      Back to home
+    </a>
+  </section>
+</Layout>

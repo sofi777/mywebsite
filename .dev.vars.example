@@ -1,0 +1,4 @@
+# Copy this file to .dev.vars (gitignored) and fill in real values for local dev.
+# In production, set these as Cloudflare Worker secrets instead (dashboard or `wrangler secret put`).
+
+STRIPE_SECRET_KEY=sk_test_...
