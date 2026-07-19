@@ -3,6 +3,7 @@ export const prerender = false;
 
 import Layout from "../../layouts/Layout.astro";
 import Stripe from "stripe";
+import { env } from "cloudflare:workers";
 
 interface Env {
   STRIPE_SECRET_KEY: string;
@@ -12,8 +13,8 @@ const sessionId = Astro.url.searchParams.get("session_id");
 let paid = false;
 
 if (sessionId) {
-  const env = Astro.locals.runtime.env as unknown as Env;
-  const stripe = new Stripe(env.STRIPE_SECRET_KEY, {
+  const typedEnv = env as unknown as Env;
+  const stripe = new Stripe(typedEnv.STRIPE_SECRET_KEY, {
     httpClient: Stripe.createFetchHttpClient(),
   });
   try {
