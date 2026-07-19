@@ -16,7 +16,7 @@ Businesses need a way to take payment for fixed-price service packages online. S
 - `payments`: Stripe Checkout Session creation and the success/cancel redirect pages
 
 ### Modified Capabilities
-- `business-content`: config gains a `packages` list; add a packages/pricing section to the site
+- None (the `packages`/pricing UI moved to the separate `business-content` change)
 
 ## Impact
 
