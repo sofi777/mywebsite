@@ -1,7 +1,7 @@
 ## MODIFIED Requirements
 
 ### Requirement: Config-driven business identity
-The system SHALL define business name, tagline, services, contact info, and trust points in a CMS-editable data file, loaded and typed by a single config module, consumed by templates rather than hardcoded per page.
+The system SHALL define business identity content — any static text or media field (name, tagline, services, contact info, trust points, and future additions) — in a CMS-editable data file, loaded and typed by a single config module, consumed by templates rather than hardcoded per page.
 
 #### Scenario: Config edit updates all usages
 - **WHEN** a value is edited (via the CMS or directly in the data file)
