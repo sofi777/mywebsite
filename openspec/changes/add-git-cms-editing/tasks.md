@@ -2,7 +2,16 @@
 
 - [x] 1.1 CMS tool decided: Sveltia CMS (see design.md decision)
 - [ ] 1.2 User sets up GitHub OAuth via Sveltia's Cloudflare Workers auth script (`sveltia/sveltia-cms-auth`)
-- [ ] 1.3 User confirms which GitHub collaborators should have write access (the actual save-permission gate)
+- [ ] 1.3 User confirms which GitHub collaborators should have write access (the actual save-permission gate). For now, CMS backend points at `mywebsite` directly, used only by the repo owner — fine, since there's no one to protect code from yet.
+
+## 1a. Content-only repo (deferred — do before inviting any non-owner CMS editor)
+
+Private repos on GitHub Free can't do path-scoped branch protection, so a collaborator with CMS access also has full code write access. Decided approach: split content into a separate repo the editor gets access to instead, with zero app code in it — the strongest guarantee, no plan upgrade needed. Deferred until there's an actual editor to onboard; doesn't require redoing any work above (the content collection schema, `business.ts` loader, and CMS field mappings are repo-agnostic — they only care about file paths at build time).
+
+- [ ] 1a.1 Create a new repo (e.g. `mywebsite-content`) containing `src/content/business/`, `src/content/blog/`, `public/uploads/`
+- [ ] 1a.2 Add a sync mechanism: a GitHub Action in the content repo, triggered on push, that copies the changed paths into `mywebsite` using a machine credential (PAT or GitHub App install token) scoped to that sync job — the human editor never holds a credential with `mywebsite` access
+- [ ] 1a.3 Update `public/admin/config.yml`'s `backend.repo` to point at the content repo instead of `mywebsite`
+- [ ] 1a.4 Invite the content editor as a collaborator on the content repo only
 
 ## 2. Content extraction
 

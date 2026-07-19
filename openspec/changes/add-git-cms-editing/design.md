@@ -12,8 +12,8 @@ Everything today is either a compiled TS object (`business.ts`) or plain markdow
 
 **Non-Goals:**
 - Rich structured content beyond current site sections (no page-builder/drag-drop layout editing)
-- Multi-user roles/permissions beyond whatever GitHub repo collaborator permissions already provide
 - Editing Stripe Price IDs through the CMS — package name/description yes, but wiring new Stripe products stays in the `add-stripe-checkout` flow; keep the two changes independent
+- Building the content-only repo split (see Decisions) in this pass — deferred until an actual non-owner editor is being onboarded
 
 ## Decisions
 
@@ -22,6 +22,7 @@ Everything today is either a compiled TS object (`business.ts`) or plain markdow
 - **Blog**: no structural change — CMS points a folder collection at `src/content/blog/*.md` with a field schema matching existing frontmatter (title, date, excerpt, tags). Already git-based markdown; the CMS is just a form on top.
 - **Media**: CMS media library writes to `public/uploads/`, committed to git like everything else. Reason over `src/assets/`: files there are served as-is at a stable URL path (`/uploads/...`), matching how a CMS field stores a plain path string — `src/assets/` requires each image to be imported and run through Astro's build-time image pipeline, which doesn't fit an arbitrary CMS-uploaded path.
 - **Auth boundary**: the `/admin` route itself is unauthenticated static HTML (standard for Decap/Sveltia) — the real gate is GitHub OAuth requiring repo write access. Anyone can open `/admin`, only a GitHub collaborator can save.
+- **Code protection for non-owner editors**: `mywebsite` is a private repo on GitHub Free, which doesn't support path-scoped push rulesets or CODEOWNERS-required reviews on private repos (both need Pro+) — so a collaborator with CMS write access also has full code write access, with no free path-level guard. Chosen fix: split CMS-editable content into a separate, code-free repo that the editor gets access to instead; a bot-driven sync (GitHub Action + machine credential) pulls it into `mywebsite`'s build, so the human editor never holds a credential that can touch code. See `tasks.md` section 1a — deferred until there's an actual non-owner editor to onboard, since the CMS backend can point straight at `mywebsite` safely as long as only the repo owner uses it.
 
 ## Risks / Trade-offs
 
