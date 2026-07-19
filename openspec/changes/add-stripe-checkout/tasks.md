@@ -1,8 +1,8 @@
 ## 1. Stripe setup (user-owned)
 
-- [ ] 1.1 User confirms/creates a Stripe account (test mode)
-- [ ] 1.2 User creates a Product + Price in Stripe for each package to sell, notes the Price IDs
-- [ ] 1.3 User sets `STRIPE_SECRET_KEY` as a Cloudflare Worker secret (dashboard or `wrangler secret put`) — not entered by the agent
+- [x] 1.1 User confirms/creates a Stripe account (test mode)
+- [x] 1.2 User creates a Product + Price in Stripe for each package to sell, notes the Price IDs
+- [x] 1.3 User sets `STRIPE_SECRET_KEY` as a Cloudflare Worker secret (dashboard or `wrangler secret put`) — not entered by the agent
 
 ## 2. Config
 

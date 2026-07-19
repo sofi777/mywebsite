@@ -80,29 +80,27 @@ export const business: Business = {
 
   currency: "usd",
 
-  // TODO: replace stripePriceId values with real Stripe Price IDs once the
-  // Stripe account and products are set up (see tasks.md task group 1).
   packages: [
     {
       id: "single-visit",
       name: "Single Visit",
       description: "Try us out with one visit — no commitment.",
       priceDisplay: "$60",
-      stripePriceId: "price_REPLACE_SINGLE_VISIT",
+      stripePriceId: "price_1Tuk7SFdioGzLuC1NfVb9mgC",
     },
     {
       id: "three-visit",
       name: "3-Visit Package",
       description: "Three visits, scheduled around your family's needs.",
       priceDisplay: "$165",
-      stripePriceId: "price_REPLACE_THREE_VISIT",
+      stripePriceId: "price_1Tuk9EFdioGzLuC1s41Lu1hl",
     },
     {
       id: "five-visit",
       name: "5-Visit Package",
       description: "Five visits — our most popular starting package.",
       priceDisplay: "$260",
-      stripePriceId: "price_REPLACE_FIVE_VISIT",
+      stripePriceId: "price_1Tuk9vFdioGzLuC1Nyi0EsMH",
     },
   ],
 };
