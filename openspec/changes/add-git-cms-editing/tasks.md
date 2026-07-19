@@ -14,10 +14,10 @@
 
 ## 3. CMS config
 
-- [ ] 3.1 Add `public/admin/index.html` (Sveltia CMS entry point, loaded from its CDN script) and `public/admin/config.yml`
-- [ ] 3.2 Map `src/content/business/business.yaml` fields to CMS fields (name, tagline, services, founder story, trust points, packages name/description)
-- [ ] 3.3 Add a blog folder collection pointing at `src/content/blog/*.md` with fields matching current frontmatter (title, date, excerpt, tags)
-- [ ] 3.4 Configure the git-backed media library (`src/assets/uploads/`)
+- [x] 3.1 Add `public/admin/index.html` (Sveltia CMS entry point, loaded from its CDN script) and `public/admin/config.yml`
+- [x] 3.2 Map `src/content/business/business.yaml` fields to CMS fields (name, tagline, services, founder story, trust points, packages name/description — `id`/`stripePriceId` included read-only so they survive saves)
+- [x] 3.3 Add a blog folder collection pointing at `src/content/blog/*.md` with fields matching current frontmatter (title, date, excerpt, tags)
+- [x] 3.4 Configure the git-backed media library (`public/uploads/`)
 
 ## 4. Deploy & verify
 
