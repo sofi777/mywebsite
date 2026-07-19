@@ -30,8 +30,8 @@ Private repos on GitHub Free can't do path-scoped branch protection, so a collab
 
 ## 4. Deploy & verify
 
-- [ ] 4.1 Push to a non-main branch, verify `/admin` loads on the Cloudflare preview deployment
-- [ ] 4.2 Log in via GitHub OAuth, confirm unauthenticated visitors can't save
-- [ ] 4.3 Edit a text field, save, verify the commit lands and triggers a deploy
-- [ ] 4.4 Upload an image, verify it's committed and renders after deploy
-- [ ] 4.5 Merge to main once verified, confirm production deploy
+- [x] 4.1 ~~Push to a non-main branch, verify `/admin` loads on the Cloudflare preview deployment~~ — preview URL discovery didn't pan out in practice; verified directly on production instead (4.2-4.5)
+- [x] 4.2 Log in via GitHub OAuth, confirm unauthenticated visitors can't save — confirmed logged-in save works; confirmed unauthenticated `/admin` shows only the GitHub sign-in screen, no save UI
+- [x] 4.3 Edit a text field, save, verify the commit lands and triggers a deploy — verified commit `e366b40` landed on `main` and deployed
+- [ ] 4.4 Upload an image, verify it's committed and renders after deploy — not yet tested (no image content in the site yet to exercise this with)
+- [x] 4.5 Merge to main once verified, confirm production deploy — merged, live site confirmed reflecting the CMS-saved edits
